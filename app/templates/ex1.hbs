@@ -1,2 +1,9 @@
 {{page-title "Ex1"}}
+
+<Textarea @value={{this.content}}/>
+<h1>{{this.content}}</h1>
+<h2>Nombre de caractères restants : {{this.size}}</h2>
+
+<div class="alert alert-{{this.style}}"></div>
+<button type="button" {{on "click" this.test}}>{{...}}</button>
 {{outlet}}
