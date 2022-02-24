@@ -1,0 +1,18 @@
+{{page-title "TestNew"}}
+
+<ul>
+  {{#each @model as |contact|}}
+
+  <li>
+    {{contact.nom}} {{contact.prenom}} {{contact.email}}
+  </li>
+
+    {{/each}}
+</ul>
+
+<Input @value={{this.name}}/>
+<Input @value={{this.surname}}/>
+<Input @value={{this.mail}}/>
+
+<button type="button" {{action "add" this.name this.surname this.mail}}>Ajouter</button>
+{{outlet}}
