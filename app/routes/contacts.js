@@ -1,13 +1,13 @@
 import Route from '@ember/routing/route';
 import { service } from '@ember/service';
 import { action } from '@ember/object';
+import Contacts from '../classes/contacts';
 
 export default class ContactsRoute extends Route {
   @service store;
 
   model() {
-    let find = this.store.findAll('contact');
-    return find;
+    return new Contacts(this.store.findAll('contact'));
   }
 
   @action add(name, surname, mail) {
