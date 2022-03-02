@@ -1,0 +1,43 @@
+{{page-title "Contacts"}}
+
+
+<table class='table'>
+
+  <tbody>
+
+    {{#each @model.contacts as |contact|}}
+
+      <tr>
+        <td>
+          {{contact.nom}} {{contact.prenom}} {{contact.email}}
+        </td>
+
+        <td>
+          <button class="bi bi-trash" class="btn btn-danger btn-sm" type="button" {{action "delete" contact}}/>
+        </td>
+      </tr>
+
+    {{/each}}
+
+  </tbody>
+
+</table>
+
+
+
+Prénom : <Input @value={{this.name}}/>
+Nom : <Input @value={{this.surname}}/>
+Email : <Input @value={{this.mail}}/>
+
+<button type="button" {{action "add" this.name this.surname this.mail}}>Ajouter</button>
+
+
+{{#if @model.deleteCount}}
+
+  <button type="button" {{action "cancelDeletion" @model.deleted}}>Annuler suppression</button>
+  <button type="button" {{action "saveDeletion" @model.deleted}}>Confirmer suppression</button>
+
+{{/if}}
+
+
+{{outlet}}
